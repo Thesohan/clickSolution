@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/rl1"
+    android:layout_height="match_parent"
+    android:background="@color/bg_white"
+    tools:context=".HomeScreen">
+
+
+<!--    <androidx.appcompat.widget.Toolbar-->
+<!--        android:id="@+id/toolbar"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="?attr/colorPrimaryDark"-->
+<!--        app:title="Click"-->
+<!--        android:minHeight="?attr/actionBarSize"-->
+<!--        android:theme="?attr/actionBarTheme" />-->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="4dp"
+        android:background="@color/bg_white"
+        android:id="@+id/rv1"
+        android:padding="8dp"
+        />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:backgroundTint="@android:color/transparent"
+        android:backgroundTint="@android:color/transparent"
+        android:src="@drawable/ic_add_mark"
+        app:maxImageSize="58dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="40dp"
+        app:elevation="9dp"
+        android:id="@+id/fab"
+        />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/actionView"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:background="@android:color/transparent"
+            android:gravity="center"
+            android:padding="20dp">
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="30dp"
+            android:background="@drawable/circular_btn"
+            android:src="@drawable/ic_barcode_final"
+            android:id="@+id/scannerBtn"
+            android:layout_marginBottom="20dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            />
+
+        <ImageButton
+            android:id="@+id/addNewBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:background="@drawable/circular_btn"
+            android:src="@drawable/ic_add_mark"
+            android:layout_marginBottom="150dp"
+            android:layout_marginTop="10dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            />
+        </LinearLayout>
+
+</RelativeLayout>

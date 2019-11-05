@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cardBackGround"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:id="@+id/connectingTextView"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:text="Connecting ..."
+        android:textColor="@color/bg_white"
+        android:textSize="48sp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_margin="48dp"
+        android:layout_height="0dp"/>
+
+    <ImageView
+        android:id="@+id/connectionImageView"
+        android:layout_weight="2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:src="@drawable/indoor"
+        />
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:gravity="bottom|center"
+        android:layout_margin="8dp"
+        >
+
+        <Button
+
+            android:layout_margin="8dp"
+            android:id="@+id/indoorButton"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_corners"
+            android:fontFamily="@font/roboto_regular"
+            android:text="@string/indoor_mode"
+            android:textAllCaps="false"
+            android:textColor="@color/bg_white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:ignore="NestedWeights" />
+        <Button
+            android:id="@+id/outdoorButton"
+            android:layout_margin="8dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_corners"
+            android:fontFamily="@font/roboto_regular"
+            android:text="@string/outdoor_mode"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/bg_white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+</LinearLayout>

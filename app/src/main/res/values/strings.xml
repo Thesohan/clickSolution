@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">OneClickSolution</string>
+
+
+    <string name="bullet_filled">\u25CF</string>
+    <string name="next">Next</string>
+    <string name="skip">Skip</string>
+    <string name="start">Let\'s Start</string>
+
+    <string name="slide_1_title">Discover</string>
+
+    <string name="slide_2_title">Discover</string>
+
+    <string name="slide_3_title">Security</string>
+
+    <string name="edit">Edit</string>
+    <string name="move">Move</string>
+    <string name="delete">Delete</string>
+    <string name="hint_device_id">Enter your Device Id</string>
+    <string name="hint_device_wifi_name">Enter Device Wifi Name</string>
+    <string name="hint_device_wifi_pwd">Enter Device Wifi Password</string>
+    <string name="proceedBtn">Proceed</string>
+    <string name="saveBtn">Save</string>
+    <string name="backBtn">Back</string>
+
+    <string name="hint_image_name">Name e.g. Kitchen\'s main light</string>
+    <string name="hint_wifi_name">Wifi Name</string>
+    <string name="hint_wifi_pwd">Wifi Password</string>
+    <string name="text_on_image_view">click to take image of appliance</string>
+    <string name="close">Close</string>
+    <string name="enter_model_name">Enter model name</string>
+    <string name="wifi_password">Wifi Password</string>
+    <string name="enter_wifi_password">Enter wifi password</string>
+    <string name="enter_brand_name">Enter brand name</string>
+    <string name="brand">Brand</string>
+    <string name="getting_started">Getting Started</string>
+    <string name="indoor_mode">Indoor Mode</string>
+    <string name="outdoor_mode">Outdoor Mode</string>
+</resources>

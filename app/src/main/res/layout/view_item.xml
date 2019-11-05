@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    app:cardCornerRadius="17.5dp"
+    android:layout_margin="4dp"
+    app:cardElevation="7dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/Image"
+                android:scaleType="fitXY"
+                android:src="@drawable/sample5"
+                android:background="@color/bg_white"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/imgClick"
+            android:background="#46000000"/>
+
+        <TextView
+            android:id="@+id/imgName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/kanit"
+            android:paddingStart="6dp"
+            android:paddingEnd="2dp"
+            android:textAlignment="viewStart"
+            android:textAllCaps="true"
+            android:textColor="@color/bg_white"
+            android:textSize="17sp"
+            android:text="hshdskjjh"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="3dp"
+            android:textSize="17sp"
+            android:textColor="@color/bg_white"
+            android:paddingStart="6dp"
+            android:paddingEnd="2dp"
+            android:text="jhfbhefbudfbufb"
+            android:textAlignment="viewStart"
+            android:id="@+id/sub_text"
+            android:fontFamily="@font/kanit"
+            />
+    </RelativeLayout>
+
+
+
+</androidx.cardview.widget.CardView>
+
+    <!--        <ImageButton-->
+    <!--            android:id="@+id/button"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_alignParentBottom="true"-->
+    <!--            android:layout_alignParentEnd="true"-->
+    <!--            android:src="@drawable/ic_menu"-->
+    <!--            android:background="@android:color/transparent"-->
+    <!--            android:paddingBottom="2dp"-->
+    <!--            android:paddingTop="2dp"/>-->

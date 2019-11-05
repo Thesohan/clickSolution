@@ -1,0 +1,167 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/bg_white"
+    >
+
+
+    <ImageView
+        android:id="@+id/backgroundImage"
+        android:layout_width="match_parent"
+        android:layout_height="294dp"
+        android:src="@drawable/pexels"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/addImage"
+        android:layout_width="180dp"
+        android:layout_height="120dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="296dp"
+        android:background="@drawable/border"
+        android:elevation="4dp"
+        android:src="@drawable/ic_backup_black_24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/backgroundImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.535"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="240dp"
+        android:elevation="3dp"
+        app:cardBackgroundColor="@color/cardBackGround"
+        app:cardCornerRadius="48dp"
+        android:layout_marginBottom="-48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.cardview.widget.CardView
+            android:layout_marginTop="56dp"
+            app:cardBackgroundColor="@color/cardBackGround"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/otherDetailLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="64dp"
+            android:layout_marginEnd="80dp"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:fontFamily="@font/roboto_regular"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
+                android:text="@string/brand"
+                android:textColor="@color/bg_white"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/brandName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_regular"
+                android:hint="@string/enter_brand_name"
+                android:inputType="text"
+                android:paddingStart="4dp"
+                android:paddingTop="0dp"
+                android:paddingEnd="4dp"
+                android:layout_marginTop="4dp"/>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/roboto_regular"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
+                android:text="Model Name"
+                android:textColor="@color/bg_white"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/modelName"
+                android:layout_marginTop="4dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_regular"
+                android:hint="@string/enter_model_name"
+                android:inputType="text"
+                android:paddingStart="4dp"
+                android:paddingTop="0dp"
+                android:paddingEnd="4dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/roboto_regular"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
+                android:text="@string/wifi_password"
+                android:textColor="@color/bg_white"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/wifiPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_regular"
+                android:hint="@string/enter_wifi_password"
+                android:inputType="textPassword"
+                android:paddingStart="4dp"
+                android:paddingTop="0dp"
+                android:paddingEnd="4dp"
+                android:layout_marginTop="4dp" />
+
+
+            <Button
+                android:id="@+id/proceedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="80dp"
+                android:background="@drawable/rounded_corners"
+                android:fontFamily="@font/roboto_regular"
+                android:paddingStart="32dp"
+                android:paddingEnd="32dp"
+                android:text="@string/proceedBtn"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/bg_white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
