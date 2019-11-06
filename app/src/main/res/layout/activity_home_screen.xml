@@ -62,7 +62,7 @@
                     android:id="@+id/scannerBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="30dp"
+                    android:padding="24dp"
                     android:background="@drawable/circular_btn"
                     android:src="@drawable/ic_barcode_final"
                     android:foreground="?android:attr/selectableItemBackground"
@@ -88,7 +88,7 @@
 
                 android:gravity="center"
                 android:orientation="vertical"
-                android:layout_marginBottom="150dp"
+                android:layout_marginBottom="96dp"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -97,7 +97,7 @@
                     android:id="@+id/addNewBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="4dp"
+                    android:padding="8dp"
                     android:layout_gravity="center"
                     android:background="@drawable/circular_btn"
                     android:src="@drawable/ic_add_mark"
@@ -105,7 +105,7 @@
                     android:foreground="?android:attr/selectableItemBackground"
                     />
                 <TextView
-                    android:text="Mannual"
+                    android:text="Manual"
                     android:textStyle="bold"
                     android:fontFamily="@font/roboto_regular"
                     android:textSize="24sp"
