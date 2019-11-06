@@ -29,11 +29,14 @@
     <string name="text_on_image_view">click to take image of appliance</string>
     <string name="close">Close</string>
     <string name="enter_model_name">Enter model name</string>
-    <string name="wifi_password">Wifi Password</string>
     <string name="enter_wifi_password">Enter wifi password</string>
     <string name="enter_brand_name">Enter brand name</string>
     <string name="brand">Brand</string>
     <string name="getting_started">Getting Started</string>
     <string name="indoor_mode">Indoor Mode</string>
     <string name="outdoor_mode">Outdoor Mode</string>
+    <string name="wifi_password">Wifi Password</string>
+    <string name="wifi_name">Wifi Name</string>
+    <string name="device_id">Device Id</string>
+    <string name="add_device">Add Device</string>
 </resources>

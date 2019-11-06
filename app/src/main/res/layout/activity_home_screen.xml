@@ -49,28 +49,78 @@
             android:background="@android:color/transparent"
             android:gravity="center"
             android:padding="20dp">
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="30dp"
-            android:background="@drawable/circular_btn"
-            android:src="@drawable/ic_barcode_final"
-            android:id="@+id/scannerBtn"
-            android:layout_marginBottom="20dp"
-            android:foreground="?android:attr/selectableItemBackground"
-            />
 
-        <ImageButton
-            android:id="@+id/addNewBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:background="@drawable/circular_btn"
-            android:src="@drawable/ic_add_mark"
-            android:layout_marginBottom="150dp"
-            android:layout_marginTop="10dp"
-            android:foreground="?android:attr/selectableItemBackground"
-            />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginBottom="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/scannerBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="30dp"
+                    android:background="@drawable/circular_btn"
+                    android:src="@drawable/ic_barcode_final"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    />
+                <TextView
+                    android:text="Scan"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/roboto_regular"
+                    android:textSize="24sp"
+                    android:textAllCaps="true"
+                    android:layout_gravity="center"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="@color/cardBackGround"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_marginBottom="150dp"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/addNewBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/circular_btn"
+                    android:src="@drawable/ic_add_mark"
+                    android:layout_marginTop="10dp"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    />
+                <TextView
+                    android:text="Mannual"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/roboto_regular"
+                    android:textSize="24sp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="@color/cardBackGround"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+
         </LinearLayout>
 
 </RelativeLayout>

@@ -10,7 +10,7 @@
         android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat">
+        android:theme="@style/AppTheme">
         <activity android:name=".FeaturesActivity" android:screenOrientation="portrait"></activity>
         <activity android:name=".AddNewDeviceActivity"  android:screenOrientation="portrait"></activity>
         <activity android:name=".HomeScreen"  android:screenOrientation="portrait">
