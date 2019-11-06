@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import dev.com.clicksolution.GlideApp;
 import dev.com.clicksolution.R;
 import dev.com.clicksolution.dataset.RecyclerViewDataset;
+import dev.com.clicksolution.interfaces.Callback;
 import dev.com.clicksolution.interfaces.OnClickListenerEvent;
 
 public class WifiListDetailsAdapter extends RecyclerView.Adapter<WifiListDetailsAdapter.WifiDetailsViewHolder> {
@@ -23,11 +24,13 @@ public class WifiListDetailsAdapter extends RecyclerView.Adapter<WifiListDetails
    private ArrayList<RecyclerViewDataset> datasets;
    private int position;
    private OnClickListenerEvent onClickListenerEvent;
+   private Callback callback;
     private Context context;
-    public WifiListDetailsAdapter(ArrayList<RecyclerViewDataset> datasets, Context context,OnClickListenerEvent onClickListenerEvent) {
+    public WifiListDetailsAdapter(ArrayList<RecyclerViewDataset> datasets, Context context,OnClickListenerEvent onClickListenerEvent,Callback callback) {
         this.datasets = datasets;
         this.context = context;
         this.onClickListenerEvent=onClickListenerEvent;
+        this.callback=callback;
     }
 
     @NonNull
@@ -105,6 +108,7 @@ public class WifiListDetailsAdapter extends RecyclerView.Adapter<WifiListDetails
         //This context menu will show when user longPress on the recyclerView's item
         @Override
         public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+            callback.callback();
             menu.add(0,1,0,context.getString(R.string.edit));
             menu.add(0,2,0,context.getString(R.string.move));
             menu.add(0,3,0,context.getString(R.string.delete));

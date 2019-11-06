@@ -1,13 +1,19 @@
 package dev.com.clicksolution;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.Manifest;
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -25,18 +31,20 @@ import java.util.Objects;
 
 import dev.com.clicksolution.adapter.WifiListDetailsAdapter;
 import dev.com.clicksolution.dataset.RecyclerViewDataset;
+import dev.com.clicksolution.interfaces.Callback;
 import dev.com.clicksolution.interfaces.OnClickListenerEvent;
 
 public class HomeScreen extends AppCompatActivity {
     public static final int CONNECTION_FRAGMENT=1000;
+    public  static  final int PICTURE_CODE=10;
     public static final String CONNECTION_FRAGMENT_KEY="connection_fragment";
-    RecyclerView recyclerView;
-    LinearLayout cardView;
-    FloatingActionButton floatingActionButton;
-    ImageButton AddNewBtn, ScannerBtn;
-    ArrayList<RecyclerViewDataset> myList = new ArrayList<>();
-    WifiListDetailsAdapter wifiListDetailsAdapter;
-    Animation scale_upAnim, scale_downAnim;
+   private RecyclerView recyclerView;
+   private LinearLayout cardView;
+   private FloatingActionButton floatingActionButton;
+    private ImageButton manualImageButton, scannerImageButton;
+    private ArrayList<RecyclerViewDataset> myList = new ArrayList<>();
+    private WifiListDetailsAdapter wifiListDetailsAdapter;
+    private Animation scale_upAnim, scale_downAnim;
     boolean isEven = true;
 
     @Override
@@ -47,8 +55,8 @@ public class HomeScreen extends AppCompatActivity {
         recyclerView = findViewById(R.id.rv1);
         floatingActionButton = findViewById(R.id.fab);
         cardView = findViewById(R.id.actionView);
-        AddNewBtn = findViewById(R.id.addNewBtn);
-        ScannerBtn = findViewById(R.id.scannerBtn);
+        manualImageButton = findViewById(R.id.addNewBtn);
+        scannerImageButton = findViewById(R.id.scannerBtn);
         cardView.setVisibility(View.INVISIBLE);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
         gridLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -69,7 +77,13 @@ public class HomeScreen extends AppCompatActivity {
             public void onClickListener(int position) {
                 goToConnectionFragment(position);
             }
-        });
+        },
+                new Callback() {
+                    @Override
+                    public void callback() {
+                        recyclerView.setAlpha((float) .4);
+                    }
+                });
 
         registerForContextMenu(recyclerView);
         recyclerView.setAdapter(wifiListDetailsAdapter);
@@ -94,10 +108,10 @@ public class HomeScreen extends AppCompatActivity {
         });
 
 
-        AddNewBtn.setOnClickListener(new View.OnClickListener() {
+        manualImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (AddNewBtn.getVisibility() == View.VISIBLE) {
+                if (manualImageButton.getVisibility() == View.VISIBLE) {
                     // starting new add_new_device_fragment only if view is visible
                     cardView.setVisibility(View.INVISIBLE);
                     isEven=!isEven;
@@ -106,6 +120,34 @@ public class HomeScreen extends AppCompatActivity {
             }
         });
 
+        scannerImageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(hasAllPermissions()) {
+                    fireCameraIntent();
+                }
+                else{
+                    askForPermissions();
+                }
+            }
+        });
+
+    }
+
+    private void fireCameraIntent() {
+
+        Intent takePictureIntent=new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if(takePictureIntent.resolveActivity(getPackageManager())!=null){
+            startActivityForResult(takePictureIntent,PICTURE_CODE);
+        }
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+
+        // TODO(TheSohan):  handle capture image here
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
     private void goToConnectionFragment(int position) {
@@ -117,7 +159,7 @@ public class HomeScreen extends AppCompatActivity {
 
     private void changeFloatingActionButtonIcon() {
         if (isEven) {
-            recyclerView.setAlpha((float) 0.2);
+            recyclerView.setAlpha((float) 0.4);
             cardView.startAnimation(scale_upAnim);
             cardView.setVisibility(View.VISIBLE);
             GlideApp.with(getApplicationContext())
@@ -153,9 +195,13 @@ public class HomeScreen extends AppCompatActivity {
 
     @Override
     protected void onResume() {
-        recyclerView.setAlpha((float) 1.0);
-        GlideApp.with(getApplicationContext()).load(R.drawable.ic_add_mark).into(floatingActionButton);
-        super.onResume();
+      if(!isEven) {
+      changeFloatingActionButtonIcon();
+      }
+      else {
+          recyclerView.setAlpha((float) 1.0);
+          GlideApp.with(getApplicationContext()).load(R.drawable.ic_add_mark).into(floatingActionButton);
+      }super.onResume();
     }
 
     @Override
@@ -201,4 +247,70 @@ public class HomeScreen extends AppCompatActivity {
         Toast.makeText(this, ""+item.getTitle()+position, Toast.LENGTH_SHORT).show();
         return super.onContextItemSelected(item);
     }
+
+    @Override
+    public void onContextMenuClosed(Menu menu) {
+        recyclerView.setAlpha(1);
+        super.onContextMenuClosed(menu);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case 1: {
+                if
+                (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                }
+
+                else {
+
+                    showAlertMessage();
+
+                }
+
+                return;
+            }
+        }
+    }
+
+    private void showAlertMessage() {
+
+        android.app.AlertDialog.Builder builder=new android.app.AlertDialog.Builder(this);
+        builder.setMessage("Please allow the permission to use this app")
+                .setIcon(R.drawable.ic_warning_black_24dp)
+                .setTitle("Permission")
+                .setPositiveButton("Retry", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        askForPermissions();
+                    }
+                })
+                .setNegativeButton("Exit", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                })
+                .show();
+
+    }
+
+    private void askForPermissions()
+    {
+        String[] permissions = {
+                Manifest.permission.CAMERA
+        };
+        if(Build.VERSION.SDK_INT>=23)
+            requestPermissions(permissions,1);
+    }
+
+
+    private boolean hasAllPermissions()
+    {
+        if(Build.VERSION.SDK_INT>=23)
+            return ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA)==PackageManager.PERMISSION_GRANTED;
+        return  true;
+    }
+
+
 }
