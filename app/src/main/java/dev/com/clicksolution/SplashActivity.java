@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -23,23 +24,25 @@ public class SplashActivity extends AppCompatActivity {
         //hiding actionbar
         Objects.requireNonNull(getSupportActionBar()).hide();
         imageView = findViewById(R.id.logo);
-        animation = AnimationUtils.loadAnimation(this, R.anim.splash_fade_animation);
-        // final Animation animation_out= AnimationUtils.loadAnimation(this,R.anim.fade_out);
-        postDelayedHandler();
-        imageView.startAnimation(animation);
-    }
 
-    private void postDelayedHandler() {
-        new Handler().postDelayed(new Runnable() {
+        new CountDownTimer(3000,1){
             @Override
-            public void run() {
+            public void onTick(long l) {
+
+            }
+
+            @Override
+            public void onFinish() {
+                //when thread is completed this method will be called
                 // This method will be executed once the timer is over
                 Intent intent = new Intent(SplashActivity.this, MainActivity.class);
                 // imageView.startAnimation(animation_out);
                 startActivity(intent);
-                overridePendingTransition(R.anim.splash_fade_animation, R.anim.fade_out);
                 finish();
+
             }
-        }, 3000);
+        }.start();
+
+
     }
 }
